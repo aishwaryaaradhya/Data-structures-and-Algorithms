@@ -1,0 +1,57 @@
+//finding the second largest element in an array "NAIVE SOLUTION"
+#include <stdio.h>
+
+int getlargest(int a[],int n)
+{
+    int largest=0; //initializing largest with index 0 (1st element of the arrayb is considere largest initialy )
+    
+    for(int i=1;i<n;i++)//treversing through the array from idex 2
+    {
+        if(a[i]>a[largest]) //check if the ith element is greater then the largest element
+        {
+            largest=i; //if true thn update the largest value by "i"th  index
+        }
+    }
+    return largest;
+}
+  
+  /*To find Second largest Element we only focus on 
+  the elements that are not equal to largest element*/
+
+int secondlargest(int a[],int n)
+{
+
+    int largest=getlargest(a,n); //calling 'getlargest' function
+    int res=-1;
+    /*we initialize res as '-1' bcz in some cases 
+    there may be no second largest element*/ 
+    
+
+    for(int i=0;i<n;i++) //traversing through the array
+    {
+        if(a[i]!=a[largest]) //if the array element is notequal to the largest element
+        {
+            if(res==-1) //we check if the the result is equal to -1,
+            res=i;
+            else if(a[i]>a[res]) //if res becomes not equal to -1 
+            res=i; /*then we check if second largest element is greater than the largest element 
+                         if true then we update the res by i (index)*/
+        }
+    }
+    return res;
+}
+int main() 
+{
+    int n;
+    scanf("%d",&n);
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    int pos=secondlargest(a,n);
+    printf("%d ",a[pos]);
+    
+	return 0;
+    
+}
