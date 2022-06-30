@@ -1,0 +1,22 @@
+/*This is "Efficient Approach"*/
+
+#include<iostream>
+using namespace std;
+
+int largestEle(int arr[],int n)
+{
+    /*declaring and Initializing a variable called 'res' equal to 0(index value)*/
+    int res=0;
+    for(int i=1;i<n;i++) //traversing the elements of the array
+    if(arr[i]>arr[res]) //conditin if the array elemnt is greater than the result
+    res=i;              //then update the value of the result by th =e index of the largest element
+    return res;
+}
+
+int main()
+{
+    int arr[]={10,30,100,60,70};
+    cout<<"The Index of the largets elment is:"<<" ";
+    cout<<largestEle(arr,5);
+    return 0;
+}
