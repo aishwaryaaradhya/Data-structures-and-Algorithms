@@ -1,0 +1,67 @@
+/*In this pgm we are implementing to delete an element in an array
+if there are multiple elements which is same as the given delete element
+then, 1st occurence is deleted*/
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+/*creating a function called "deleteEle",
+ which takes the input as: array 'arr[]', size of the array 'int n', element to be deleted 'int x'*/
+int deleteEle(int arr[], int n, int x)
+{
+	int i = 0;
+
+//tarversing through the array
+	for(i = 0; i < n; i++)
+	{
+		/*checing for the condition,
+		 if the any of the array element is equal to delete element 'arr[i]==x', then break the loop*/
+		if(arr[i] == x)
+			break;
+	}
+
+    /*This is to say that elements of the array does not match with the element to be deleted.
+    Checkin for Condition, if the array size after the for loop is equal to the size of the array provided
+    then retun the value of n*/
+	if(i == n)
+		return n;
+		/*if the element in the array is not deleted then it returnns the size n*/
+
+	/*declaring a variable j of int data type and assigning it to i
+	condition: if j is less than n, update or copy the element of arr[j] by arr[j+1]*/
+	for(int j = i; j < n - 1; j++)
+	{
+		arr[j] = arr[j + 1];
+	}
+	/*if the arrray element is deleted then returns n-1 size of array*/
+	return n-1;
+} 
+
+    
+int main() {
+		/*initializing an array and providing the values for 
+		the array, element to be deleted, size of the array respectively*/
+
+       int arr[] = {3, 8, 12, 5, 6}, x = 12, n = 5;
+
+       cout<<"Before Deletion"<<endl;
+
+       for(int i=0; i < n; i++)//traversing through the array
+       {
+       	cout<<arr[i]<<" ";
+       }
+
+       cout<<endl;
+
+     
+       n = deleteEle(arr, n, x);//calling deleteEle fun()
+
+       cout<<"After Deletion"<<endl;
+
+       for(int i=0; i < n; i++)
+       {
+       		cout<<arr[i]<<" ";
+       }
+    
+}
