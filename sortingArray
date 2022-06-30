@@ -1,0 +1,24 @@
+/*Efficint approch
+checkking if the array is sorted*/
+
+#include<iostream>
+using namespace std;
+bool SortingEle(int arr[],int n)
+{
+    bool res;
+    for(int i=0;i<n;i++)
+    if(arr[i]<arr[i-1])//cheking if the 'ith' element is smaller than 'i-1'th element
+    res=false;//if true store false in the result stating the array is not sorted
+    return false;
+        return true; //if the ith elemnt is greater then (i-1)th element 
+                    //then return true stating array is sorted
+}
+
+int main()
+{
+    int arr[]={8,7,6,5,4};
+    printf("%s", SortingEle(arr, 5)? "true": "false");
+    return 0;
+
+}
+    
